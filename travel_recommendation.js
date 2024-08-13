@@ -32,7 +32,7 @@ function searchCondition(){
                     resultDiv.appendChild(cityDiv);
                 });
             } else if(input === "beaches" || input === "beach"){
-                beaches.forEach(beach => {
+                data.beaches.forEach(beach => {
                     const cityDiv = document.createElement('div');
                     cityDiv.classList.add('beach');
 
@@ -53,7 +53,26 @@ function searchCondition(){
                     resultDiv.appendChild(cityDiv);
                 });
             }else if(input === "temple" || input === "temples"){
+                data.temples.forEach(temple => {
+                    const cityDiv = document.createElement('div');
+                    cityDiv.classList.add('temple');
 
+                    const beachName = document.createElement('h3');
+                    beachName.textContent = temple.name;
+                    
+                    const cityImage = document.createElement('img');
+                    cityImage.src = temple.imageUrl;
+                    cityImage.alt = temple.name;
+
+                    const cityDescription = document.createElement('p');
+                    cityDescription.textContent = temple.description;
+
+                    cityDiv.appendChild(beachName);
+                    cityDiv.appendChild(cityImage);
+                    cityDiv.appendChild(cityDescription);
+
+                    resultDiv.appendChild(cityDiv);
+                });
             }else {
                 resultDiv.innerHTML = '<p>No recommendation found for the given input.</p>';
             }
